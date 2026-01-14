@@ -3,6 +3,7 @@ let lastTime = null;
 
 const textarea = document.getElementById("typingArea");
 
+// Capture timing latencies between keypresses
 textarea.addEventListener("keydown", () => {
     const now = performance.now();
     if (lastTime !== null) {
@@ -29,7 +30,7 @@ function sendData() {
         const resultDisplay = document.getElementById("result");
         const methodIndicator = document.getElementById("methodIndicator");
         
-        // Show confidence as a percentage
+        // CONVERSION: Multiply decimal by 100 to get percentage
         const confidencePercent = (result.confidence * 100).toFixed(1);
         resultDisplay.innerText = `${result.emotion} (${confidencePercent}%)`;
         
